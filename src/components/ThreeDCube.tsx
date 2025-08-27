@@ -1,48 +1,67 @@
 'use client'
 
-import { useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { Box, Sphere, OrbitControls, MeshDistortMaterial } from '@react-three/drei'
-import * as THREE from 'three'
-
-function AnimatedMesh() {
-  const meshRef = useRef<THREE.Mesh>(null)
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x += 0.005
-      meshRef.current.rotation.y += 0.01
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.2
-    }
-  })
-
-  return (
-    <mesh ref={meshRef}>
-      <Sphere args={[1, 100, 200]}>
-        <MeshDistortMaterial
-          color="#6366f1"
-          attach="material"
-          distort={0.5}
-          speed={2}
-          roughness={0.2}
-          metalness={0.8}
-        />
-      </Sphere>
-    </mesh>
-  )
-}
+import { motion } from 'framer-motion'
 
 export default function ThreeDCube() {
   return (
-    <div className="w-full h-[500px] relative">
+    <div className="w-full h-[500px] relative flex items-center justify-center">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl" />
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <pointLight position={[-10, -10, -5]} intensity={0.5} color="#ec4899" />
-        <AnimatedMesh />
-        <OrbitControls enableZoom={false} enablePan={false} />
-      </Canvas>
+      
+      {/* Animated CSS Cube */}
+      <motion.div
+        animate={{
+          rotateX: [0, 360],
+          rotateY: [0, 360],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        className="relative w-32 h-32"
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        {/* Cube faces */}
+        <div className="absolute w-32 h-32 bg-gradient-to-br from-primary to-secondary opacity-80 border border-white/20"
+             style={{ transform: 'rotateY(0deg) translateZ(64px)' }} />
+        <div className="absolute w-32 h-32 bg-gradient-to-br from-secondary to-accent opacity-80 border border-white/20"
+             style={{ transform: 'rotateY(90deg) translateZ(64px)' }} />
+        <div className="absolute w-32 h-32 bg-gradient-to-br from-accent to-primary opacity-80 border border-white/20"
+             style={{ transform: 'rotateY(180deg) translateZ(64px)' }} />
+        <div className="absolute w-32 h-32 bg-gradient-to-br from-primary to-secondary opacity-80 border border-white/20"
+             style={{ transform: 'rotateY(-90deg) translateZ(64px)' }} />
+        <div className="absolute w-32 h-32 bg-gradient-to-br from-secondary to-accent opacity-80 border border-white/20"
+             style={{ transform: 'rotateX(90deg) translateZ(64px)' }} />
+        <div className="absolute w-32 h-32 bg-gradient-to-br from-accent to-primary opacity-80 border border-white/20"
+             style={{ transform: 'rotateX(-90deg) translateZ(64px)' }} />
+      </motion.div>
+      
+      {/* Floating particles */}
+      <motion.div
+        animate={{
+          y: [0, -20, 0],
+          opacity: [0.3, 1, 0.3]
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        className="absolute top-10 left-10 w-2 h-2 bg-primary rounded-full"
+      />
+      <motion.div
+        animate={{
+          y: [0, 20, 0],
+          opacity: [0.3, 1, 0.3]
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+        className="absolute bottom-10 right-10 w-3 h-3 bg-accent rounded-full"
+      />
     </div>
   )
 }
