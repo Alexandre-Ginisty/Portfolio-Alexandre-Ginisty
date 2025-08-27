@@ -1,7 +1,4 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production'
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
-
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -12,8 +9,9 @@ const nextConfig = {
     unoptimized: true,
     domains: ['localhost'],
   },
-  // Apply basePath/assetPrefix only in production when provided
-  ...(isProd && basePath ? { basePath, assetPrefix: `${basePath}/` } : {}),
+  // Set basePath for GitHub Pages (repo name)
+  basePath: '/portfolio',
+  assetPrefix: '/portfolio/',
   // Improves compatibility with GitHub Pages routing
   trailingSlash: true,
 }
