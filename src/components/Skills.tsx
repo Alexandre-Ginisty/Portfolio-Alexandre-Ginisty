@@ -71,7 +71,22 @@ const skills = [
 ]
 
 const masteredTechs = [
-  'Python', 'Java', 'React', 'Node.js', 'SQL/NoSQL', 'Docker', 'Git', 'System', 'AWS', 'Figma'
+  'HTML/CSS', 'JavaScript', 'PHP', 'Flutter', 'Dart', 'Kotlin', 'Python', 'Java', 'React', 'TypeScript', 'PgSQL', 
+  'MySQL', 'SQLite', 'Git', 'GitHub', 'Android', 'JetBrains', 'Chart.js', 'Pandas', 'Flask', 'QR Code', 'API REST'
+]
+
+const languages = [
+  { name: 'Français', level: 'Langue maternelle' },
+  { name: 'Anglais', level: 'B2 (TOEIC CEFR)' },
+  { name: 'Espagnol', level: 'Niveau Scolaire' }
+]
+
+const qualities = [
+  'Esprit d\'équipe', 'Focus', 'Capacité à apprendre', 'Persévérance'
+]
+
+const sportsAndHobbies = [
+  'Sports : Musculation, Basketball', 'Musique', 'Jeux vidéo'
 ]
 
 export default function Skills() {
@@ -150,7 +165,7 @@ export default function Skills() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.8 }}
-          className="glass-effect p-8 rounded-2xl"
+          className="glass-effect p-8 rounded-2xl mb-8"
         >
           <h3 className="text-2xl font-bold mb-6 text-center gradient-text">Technologies Maîtrisées</h3>
           <div className="flex flex-wrap justify-center gap-3">
@@ -164,6 +179,63 @@ export default function Skills() {
             ))}
           </div>
         </motion.div>
+
+        {/* Additional Skills Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Languages */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="glass-effect p-6 rounded-2xl"
+          >
+            <h4 className="text-xl font-bold mb-4 gradient-text">Langues</h4>
+            <div className="space-y-3">
+              {languages.map((lang) => (
+                <div key={lang.name} className="flex justify-between items-center">
+                  <span className="text-gray-200">{lang.name}</span>
+                  <span className="text-sm text-primary">{lang.level}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Qualities */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className="glass-effect p-6 rounded-2xl"
+          >
+            <h4 className="text-xl font-bold mb-4 gradient-text">Qualités</h4>
+            <div className="space-y-2">
+              {qualities.map((quality) => (
+                <div key={quality} className="flex items-center text-gray-200">
+                  <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                  {quality}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Sports & Hobbies */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 1.4 }}
+            className="glass-effect p-6 rounded-2xl"
+          >
+            <h4 className="text-xl font-bold mb-4 gradient-text">Sports & Loisirs</h4>
+            <div className="space-y-2">
+              {sportsAndHobbies.map((hobby) => (
+                <div key={hobby} className="flex items-center text-gray-200">
+                  <span className="w-2 h-2 bg-secondary rounded-full mr-3"></span>
+                  {hobby}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

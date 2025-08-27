@@ -48,26 +48,26 @@ export default function Contact() {
     {
       icon: FiMail,
       title: 'Email',
-      value: 'alexandre.ginisty@email.com',
-      link: 'mailto:alexandre.ginisty@email.com'
+      value: 'alexandre.ginisty.pro@gmail.com',
+      link: 'mailto:alexandre.ginisty.pro@gmail.com'
     },
     {
       icon: FiMapPin,
       title: 'Localisation',
-      value: 'Paris, France',
+      value: 'Villecresnes (IDF)',
       link: '#'
     },
     {
       icon: FiPhone,
       title: 'Téléphone',
-      value: '+33 7 62 34 97 36',
+      value: '07 62 34 97 36',
       link: 'tel:+33762349736'
     }
   ]
 
   const socialLinks = [
-    { icon: FiGithub, href: 'https://github.com/alexandre-ginisty', label: 'GitHub' },
-    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/alexandre-ginisty-72233628b/', label: 'LinkedIn' },
+    { icon: FiGithub, href: 'https://github.com/Alexandre-Ginisty', label: 'GitHub' },
+    { icon: FiLinkedin, href: 'https://linkedin.com/in/alexandre-ginisty-72233628b/', label: 'LinkedIn' },
   ]
 
   return (
