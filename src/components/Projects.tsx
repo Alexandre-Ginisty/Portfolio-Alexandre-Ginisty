@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FiGithub, FiExternalLink, FiCode, FiCpu, FiDatabase, FiUsers } from 'react-icons/fi'
-import { SiPython, SiReact, SiDocker, SiFastapi, SiAmazonaws, SiFlutter } from 'react-icons/si'
+import { SiPython, SiReact, SiDocker, SiFastapi, SiAmazon, SiFlutter } from 'react-icons/si'
 import Tilt from 'react-parallax-tilt'
 
 const projects = [
