@@ -3,6 +3,14 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
+// Configuration pour les images en export statique
+const CustomImage = (props: any) => (
+  <Image 
+    {...props}
+    unoptimized={true}
+  />
+)
+
 export default function AboutMe() {
   return (
     <section id="about" className="min-h-screen flex items-center justify-center bg-base-100 py-20">
@@ -16,25 +24,30 @@ export default function AboutMe() {
         >
           {/* Photo */}
           <div className="w-full lg:w-1/3 flex justify-center">
-            <div 
-              className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-xl bg-gray-200"
-              style={{
-                backgroundImage: 'url(/public/img/photo-pro.jpg)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
-              }}
-            >
-              {/* Image de secours si nécessaire */}
-              <img 
-                src="/public/img/photo-pro.jpg" 
-                alt="Alexandre Ginisty"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                }}
-              />
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-xl bg-gray-200">
+              <div className="relative w-full h-full">
+                <CustomImage
+                  src="/img/photo-pro.jpg"
+                  alt="Alexandre Ginisty"
+                  fill
+                  className="object-cover"
+                  priority
+                  onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                    const target = e.target as HTMLImageElement;
+                    console.error('Erreur de chargement de l\'image:', target.src);
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      parent.innerHTML = `
+                        <div class="w-full h-full flex items-center justify-center bg-red-100 text-red-700 p-4 text-center">
+                          Image non trouvée: ${target.src}
+                        </div>
+                      `;
+                    }
+                  }}
+                />
+                <div className="absolute inset-0 border-2 border-red-500 rounded-full pointer-events-none"></div>
+              </div>
             </div>
           </div>
           
