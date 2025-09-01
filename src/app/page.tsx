@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Hero from '@/components/Hero'
+import AboutMe from '@/components/AboutMe'
 import Navigation from '@/components/Navigation'
 import Skills from '@/components/Skills'
 import Projects from '@/components/Projects'
@@ -26,6 +27,7 @@ export default function Home() {
       <ScrollIndicator />
       <main className="relative z-10">
         <Hero />
+        <AboutMe />
         <Skills />
         <Projects />
         <Contact />
