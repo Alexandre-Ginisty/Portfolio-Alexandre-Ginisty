@@ -16,20 +16,13 @@ export default function AboutMe() {
           {/* Photo */}
           <div className="w-full lg:w-1/3 flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-xl bg-gray-200">
-              <img 
-                src={`${process.env.NODE_ENV === 'production' ? '/Portfolio' : ''}/img/photo-pro.jpg`}
-                alt="Alexandre Ginisty"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  target.parentElement!.innerHTML = `
-                    <div class="w-full h-full flex items-center justify-center bg-red-100 text-red-700 p-4 text-center">
-                      Image non trouvée: ${target.src}
-                    </div>
-                  `;
-                }}
-              />
+            <img
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/img/photo-pro.jpg`}
+              alt="Alexandre Ginisty"
+              className="w-full h-full object-cover"
+              onError={(e) => { /* ... */ }}
+            />
+
             </div>
           </div>
           
