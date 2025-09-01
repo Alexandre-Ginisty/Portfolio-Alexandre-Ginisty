@@ -27,8 +27,8 @@ export default function Navigation() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'glass-effect py-4' : 'py-6'
+      className={`fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm ${
+        scrolled ? 'py-3' : 'py-4'
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
@@ -38,8 +38,8 @@ export default function Navigation() {
           whileTap={{ scale: 0.95 }}
           className="text-2xl font-bold"
         >
-          <span className="gradient-text">AG</span>
-          <span className="text-white ml-2 hidden sm:inline">Ginisty</span>
+          <span className="text-primary font-bold text-2xl">AG</span>
+          <span className="text-gray-800 ml-2 hidden sm:inline font-medium">Ginisty</span>
         </motion.a>
 
         {/* Desktop Menu */}
@@ -50,7 +50,7 @@ export default function Navigation() {
               href={item.href}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-2 text-gray-300 hover:text-primary transition-colors"
+              className="flex items-center space-x-2 text-gray-700 hover:text-primary transition-colors font-medium"
             >
               <item.icon className="w-4 h-4" />
               <span>{item.name}</span>
@@ -62,7 +62,7 @@ export default function Navigation() {
         <motion.button
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white z-50"
+          className="md:hidden text-gray-800 z-50"
         >
           {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </motion.button>
@@ -76,7 +76,7 @@ export default function Navigation() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 20 }}
-            className="fixed top-0 right-0 w-64 h-full glass-effect md:hidden"
+            className="fixed top-0 right-0 w-64 h-full bg-white shadow-lg md:hidden"
           >
             <div className="flex flex-col space-y-6 p-8 pt-20">
               {navItems.map((item) => (
@@ -85,7 +85,7 @@ export default function Navigation() {
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   whileHover={{ x: 10 }}
-                  className="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors"
+                  className="flex items-center space-x-3 text-gray-700 hover:text-primary transition-colors"
                 >
                   <item.icon className="w-5 h-5" />
                   <span className="text-lg">{item.name}</span>

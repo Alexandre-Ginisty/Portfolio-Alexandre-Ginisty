@@ -9,9 +9,7 @@ export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="hero-gradient absolute inset-0" />
-      
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
       {/* Animated Background Shapes */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -48,41 +46,33 @@ export default function Hero() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            ref={containerRef}
+            className="text-center lg:text-left"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300"
-            >
-              Portfolio
-            </motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-5xl md:text-7xl font-bold mb-6"
-            >
-              Alexandre
-              <span className="block gradient-text">Ginisty</span>
-            </motion.h1>
-
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                Alexandre Ginisty
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-700 mb-8 font-medium">
+              Développeur Full Stack & Passionné par l'Innovation
+            </p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-xl md:text-2xl text-gray-300 mb-8"
+              className="text-xl md:text-2xl text-gray-600 mb-8"
             >
-              <span className="text-primary font-semibold">Développeur Full-Stack</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent font-semibold">Développeur Full-Stack</span>
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-gray-400 mb-8 text-lg leading-relaxed"
+              className="text-gray-600 mb-8 text-lg leading-relaxed"
             >
+              Je crée des expériences web modernes et performantes avec les dernières technologies.
+              Passionné par le développement full-stack et l'expérience utilisateur, je mets mon expertise à votre service pour concrétiser vos projets.
             </motion.p>
 
             <motion.div
@@ -93,17 +83,17 @@ export default function Hero() {
             >
               <motion.a
                 href="#skills"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-semibold hover:shadow-lg hover:shadow-primary/50 transition-shadow"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-3 bg-white text-primary border-2 border-primary/50 rounded-full font-semibold hover:bg-primary/5 hover:border-primary transition-all duration-300 shadow-sm hover:shadow-md"
               >
                 Découvrir mes compétences
               </motion.a>
               <motion.a
                 href="#contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 glass-effect text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
+                className="inline-block bg-gradient-to-r from-primary to-accent text-white font-semibold px-8 py-3 rounded-full hover:opacity-90 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
               >
                 Me contacter
               </motion.a>

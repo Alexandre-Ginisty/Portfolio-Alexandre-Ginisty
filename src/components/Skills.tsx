@@ -96,7 +96,7 @@ export default function Skills() {
   })
 
   return (
-    <section id="skills" className="py-20 relative overflow-hidden">
+    <section id="skills" className="py-20 relative bg-gray-50">
       <div className="absolute inset-0 skill-gradient opacity-30" />
       
       <div className="container mx-auto px-6 relative z-10">
@@ -107,12 +107,10 @@ export default function Skills() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="gradient-text">Mes Compétences</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Mes Compétences</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Expertise technique et savoir-faire professionnel
-          </p>
+          <p className="text-xl text-gray-600">Expertise technique et savoir-faire professionnel</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
@@ -125,34 +123,53 @@ export default function Skills() {
               whileHover={{ scale: 1.02 }}
               className="relative group"
             >
-              <div className="relative glass-effect p-8 rounded-2xl h-full">
-                <h3 className="text-2xl font-bold mb-3 text-white">{skill.title}</h3>
-                <p className="text-gray-400 mb-6">{skill.description}</p>
+              <div className="relative bg-white/90 backdrop-blur-sm p-8 rounded-2xl h-full border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-2xl font-bold mb-6 text-gray-900 border-b pb-3 border-gray-100">{skill.title}</h3>
+                <p className="text-gray-700 mb-8 leading-relaxed">{skill.description}</p>
                 
-                <div className="space-y-5">
-                  <div>
-                    <h4 className="text-sm font-semibold text-primary mb-2">Situations professionnelles (CE)</h4>
-                    <ul className="list-disc list-inside text-gray-300 space-y-1">
+                <div className="space-y-8">
+                  <div className="bg-gray-50 p-5 rounded-xl">
+                    <h4 className="text-lg font-semibold text-primary mb-3 flex items-center">
+                      <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                      Situations professionnelles (CE)
+                    </h4>
+                    <ul className="space-y-2.5 mt-3">
                       {skill.ce.map((item: string, i: number) => (
-                        <li key={i}>{item}</li>
+                        <li key={i} className="flex items-start">
+                          <span className="text-primary mr-2 mt-1.5">•</span>
+                          <span className="text-gray-700">{item}</span>
+                        </li>
                       ))}
                     </ul>
                   </div>
-                  <div>
-                    <h4 className="text-sm font-semibold text-primary mb-2">Apprentissages Critiques (AC)</h4>
-                    <ul className="list-disc list-inside text-gray-300 space-y-1">
+                  
+                  <div className="bg-gray-50 p-5 rounded-xl">
+                    <h4 className="text-lg font-semibold text-primary mb-3 flex items-center">
+                      <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                      Apprentissages Critiques (AC)
+                    </h4>
+                    <ul className="space-y-2.5 mt-3">
                       {skill.ac.map((item: string, i: number) => (
-                        <li key={i}>{item}</li>
+                        <li key={i} className="flex items-start">
+                          <span className="text-primary mr-2 mt-1.5">•</span>
+                          <span className="text-gray-700">{item}</span>
+                        </li>
                       ))}
                     </ul>
                   </div>
-                  <div>
-                    <h4 className="text-sm font-semibold text-primary mb-2">Ressources associées</h4>
-                    <ul className="list-disc list-inside text-gray-300 space-y-1">
+                  
+                  <div className="bg-gray-50 p-5 rounded-xl">
+                    <h4 className="text-lg font-semibold text-primary mb-3 flex items-center">
+                      <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                      Ressources associées
+                    </h4>
+                    <div className="flex flex-wrap gap-2 mt-3">
                       {skill.ressources.map((item: string, i: number) => (
-                        <li key={i}>{item}</li>
+                        <span key={i} className="inline-block bg-white px-3 py-1.5 rounded-full text-sm text-gray-700 border border-gray-200">
+                          {item}
+                        </span>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -165,14 +182,14 @@ export default function Skills() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.8 }}
-          className="glass-effect p-8 rounded-2xl mb-8"
+          className="bg-white p-8 rounded-2xl mb-8 shadow-md border border-gray-100"
         >
-          <h3 className="text-2xl font-bold mb-6 text-center gradient-text">Technologies Maîtrisées</h3>
+          <h3 className="text-2xl font-bold mb-6 text-center text-gray-900">Technologies Maîtrisées</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {masteredTechs.map((tech) => (
               <span
                 key={tech}
-                className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-gray-200 hover:text-white hover:bg-white/10 transition-colors"
+                className="px-4 py-2 rounded-full bg-gray-100 border border-gray-200 text-gray-700 hover:text-primary hover:border-primary transition-colors"
               >
                 {tech}
               </span>
@@ -181,20 +198,22 @@ export default function Skills() {
         </motion.div>
 
         {/* Additional Skills Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {/* Languages */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 1 }}
-            className="glass-effect p-6 rounded-2xl"
+            className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all"
           >
-            <h4 className="text-xl font-bold mb-4 gradient-text">Langues</h4>
-            <div className="space-y-3">
+            <h4 className="text-xl font-bold mb-6 pb-3 border-b border-gray-100 text-gray-900">Langues</h4>
+            <div className="space-y-4">
               {languages.map((lang) => (
-                <div key={lang.name} className="flex justify-between items-center">
-                  <span className="text-gray-200">{lang.name}</span>
-                  <span className="text-sm text-primary">{lang.level}</span>
+                <div key={lang.name} className="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
+                  <span className="text-gray-700 font-medium">{lang.name}</span>
+                  <span className="text-sm font-medium bg-primary/10 text-primary px-3 py-1 rounded-full">
+                    {lang.level}
+                  </span>
                 </div>
               ))}
             </div>
@@ -205,14 +224,14 @@ export default function Skills() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="glass-effect p-6 rounded-2xl"
+            className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all"
           >
-            <h4 className="text-xl font-bold mb-4 gradient-text">Qualités</h4>
-            <div className="space-y-2">
+            <h4 className="text-xl font-bold mb-6 pb-3 border-b border-gray-100 text-gray-900">Qualités</h4>
+            <div className="grid grid-cols-2 gap-3">
               {qualities.map((quality) => (
-                <div key={quality} className="flex items-center text-gray-200">
-                  <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                  {quality}
+                <div key={quality} className="flex items-center bg-gray-50 p-3 rounded-lg">
+                  <span className="w-2 h-2 bg-primary rounded-full mr-2 flex-shrink-0"></span>
+                  <span className="text-gray-700 text-sm font-medium">{quality}</span>
                 </div>
               ))}
             </div>
@@ -223,14 +242,17 @@ export default function Skills() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 1.4 }}
-            className="glass-effect p-6 rounded-2xl"
+            className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all"
           >
-            <h4 className="text-xl font-bold mb-4 gradient-text">Sports & Loisirs</h4>
-            <div className="space-y-2">
-              {sportsAndHobbies.map((hobby) => (
-                <div key={hobby} className="flex items-center text-gray-200">
-                  <span className="w-2 h-2 bg-secondary rounded-full mr-3"></span>
-                  {hobby}
+            <h4 className="text-xl font-bold mb-6 pb-3 border-b border-gray-100 text-gray-900">Sports & Loisirs</h4>
+            <div className="space-y-3">
+              {sportsAndHobbies.map((hobby, index) => (
+                <div 
+                  key={index} 
+                  className="bg-gray-50 p-4 rounded-xl hover:bg-gray-100 transition-colors flex items-center"
+                >
+                  <span className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></span>
+                  <span className="text-gray-700">{hobby}</span>
                 </div>
               ))}
             </div>

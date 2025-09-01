@@ -71,12 +71,12 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
+    <section id="contact" className="py-20 relative overflow-hidden bg-gray-50">
       <Toaster position="top-right" />
       
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-accent/5" />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white" />
         <motion.div
           animate={{
             rotate: [0, 360],
@@ -93,18 +93,21 @@ export default function Contact() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+        <motion.div 
           className="text-center mb-16"
+          ref={ref}
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="gradient-text">Créons Ensemble</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              Contactez-moi
+            </span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Prêt à transformer vos idées en réalité ? Discutons de votre prochain projet innovant
+          <div className="w-20 h-1.5 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-8"></div>
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+            Vous avez un projet en tête ou souhaitez discuter d'une opportunité ? N'hésitez pas à me contacter !
           </p>
         </motion.div>
 
@@ -115,88 +118,77 @@ export default function Contact() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="glass-effect rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-6 text-white">Envoyez-moi un message</h3>
-              
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Envoyez-moi un message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <motion.div
-                    whileFocus={{ scale: 1.02 }}
-                    className="relative"
-                  >
-                    <input
-                      type="text"
-                      required
-                      placeholder="Votre nom"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-primary transition-colors"
-                    />
-                  </motion.div>
-                  
-                  <motion.div
-                    whileFocus={{ scale: 1.02 }}
-                    className="relative"
-                  >
-                    <input
-                      type="email"
-                      required
-                      placeholder="Votre email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-primary transition-colors"
-                    />
-                  </motion.div>
-                </div>
-
-                <motion.div
-                  whileFocus={{ scale: 1.02 }}
-                  className="relative"
-                >
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Nom complet
+                  </label>
                   <input
                     type="text"
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-gray-800"
+                    placeholder="Votre nom"
                     required
-                    placeholder="Sujet"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-gray-800"
+                    placeholder="votre@email.com"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                    Sujet
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
                     value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-primary transition-colors"
-                  />
-                </motion.div>
-
-                <motion.div
-                  whileFocus={{ scale: 1.02 }}
-                  className="relative"
-                >
-                  <textarea
+                    onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-gray-800"
+                    placeholder="Objet de votre message"
                     required
-                    rows={6}
-                    placeholder="Votre message..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-primary transition-colors resize-none"
                   />
-                </motion.div>
+                </div>
 
-                <motion.button
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={5}
+                    value={formData.message}
+                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all text-gray-800"
+                    placeholder="Votre message..."
+                    required
+                  ></textarea>
+                </div>
+
+                <button
                   type="submit"
                   disabled={isSubmitting}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-primary to-accent text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
                 >
-                  {isSubmitting ? (
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                      className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                    />
-                  ) : (
-                    <>
-                      <FiSend />
-                      Envoyer le message
-                    </>
-                  )}
-                </motion.button>
+                  {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
+                  <FiSend className="text-lg" />
+                </button>
               </form>
             </div>
           </motion.div>
@@ -208,48 +200,46 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-6"
           >
-            {/* Contact Cards */}
-            <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <motion.a
-                  key={index}
-                  href={info.link}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                  whileHover={{ scale: 1.02, x: 10 }}
-                  className="glass-effect rounded-xl p-6 flex items-center gap-4 group cursor-pointer"
-                >
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <info.icon className="text-white text-xl" />
+              {/* Contact Cards */}
+            {contactInfo.map((item, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-primary/10 p-3 rounded-full text-primary">
+                    <item.icon className="text-xl" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">{info.title}</p>
-                    <p className="text-white text-lg group-hover:gradient-text transition-all">{info.value}</p>
+                    <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                    {item.link ? (
+                      <a 
+                        href={item.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-gray-600 hover:text-primary transition-colors"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-gray-600">{item.value}</p>
+                    )}
                   </div>
-                </motion.a>
-              ))}
-            </div>
+                </div>
+              </div>
+            ))}
 
-            {/* Social Links */}
-            <div className="glass-effect rounded-xl p-6">
-              <h4 className="text-xl font-semibold mb-4 text-white">Suivez-moi</h4>
-              <div className="flex gap-4">
+            <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Réseaux sociaux</h3>
+              <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
-                  <motion.a
+                  <a
                     key={index}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-                    className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-gray-300 hover:text-white hover:bg-gradient-to-br hover:from-primary hover:to-secondary transition-all"
+                    className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-50 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors border border-gray-200"
+                    aria-label={social.label}
                   >
-                    <social.icon size={20} />
-                  </motion.a>
+                    <social.icon className="text-xl" />
+                  </a>
                 ))}
               </div>
             </div>

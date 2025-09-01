@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans bg-dark text-light`}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans bg-white text-gray-800`}>
         {children}
       </body>
     </html>

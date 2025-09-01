@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 export default function ThreeDCube() {
   return (
     <div className="w-full h-[500px] relative flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl blur-3xl" />
       
       {/* Animated CSS Cube */}
       <motion.div
@@ -22,17 +22,17 @@ export default function ThreeDCube() {
         style={{ transformStyle: 'preserve-3d' }}
       >
         {/* Cube faces */}
-        <div className="absolute w-32 h-32 bg-gradient-to-br from-primary to-secondary opacity-80 border border-white/20"
+        <div className="absolute w-32 h-32 bg-gradient-to-br from-primary/80 to-secondary/80 opacity-90 border border-white/30 backdrop-blur-sm"
              style={{ transform: 'rotateY(0deg) translateZ(64px)' }} />
-        <div className="absolute w-32 h-32 bg-gradient-to-br from-secondary to-accent opacity-80 border border-white/20"
+        <div className="absolute w-32 h-32 bg-gradient-to-br from-secondary/80 to-accent/80 opacity-90 border border-white/30 backdrop-blur-sm"
              style={{ transform: 'rotateY(90deg) translateZ(64px)' }} />
-        <div className="absolute w-32 h-32 bg-gradient-to-br from-accent to-primary opacity-80 border border-white/20"
+        <div className="absolute w-32 h-32 bg-gradient-to-br from-accent/80 to-primary/80 opacity-90 border border-white/30 backdrop-blur-sm"
              style={{ transform: 'rotateY(180deg) translateZ(64px)' }} />
-        <div className="absolute w-32 h-32 bg-gradient-to-br from-primary to-secondary opacity-80 border border-white/20"
+        <div className="absolute w-32 h-32 bg-gradient-to-br from-primary/80 to-secondary/80 opacity-90 border border-white/30 backdrop-blur-sm"
              style={{ transform: 'rotateY(-90deg) translateZ(64px)' }} />
-        <div className="absolute w-32 h-32 bg-gradient-to-br from-secondary to-accent opacity-80 border border-white/20"
+        <div className="absolute w-32 h-32 bg-gradient-to-br from-secondary/80 to-accent/80 opacity-90 border border-white/30 backdrop-blur-sm"
              style={{ transform: 'rotateX(90deg) translateZ(64px)' }} />
-        <div className="absolute w-32 h-32 bg-gradient-to-br from-accent to-primary opacity-80 border border-white/20"
+        <div className="absolute w-32 h-32 bg-gradient-to-br from-accent/80 to-primary/80 opacity-90 border border-white/30 backdrop-blur-sm"
              style={{ transform: 'rotateX(-90deg) translateZ(64px)' }} />
       </motion.div>
       
@@ -47,7 +47,7 @@ export default function ThreeDCube() {
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute top-10 left-10 w-2 h-2 bg-primary rounded-full"
+        className="absolute top-10 left-10 w-2 h-2 bg-primary/80 rounded-full shadow-sm"
       />
       <motion.div
         animate={{
@@ -60,7 +60,7 @@ export default function ThreeDCube() {
           ease: "easeInOut",
           delay: 1
         }}
-        className="absolute bottom-10 right-10 w-3 h-3 bg-accent rounded-full"
+        className="absolute bottom-10 right-10 w-3 h-3 bg-accent/80 rounded-full shadow-sm"
       />
     </div>
   )

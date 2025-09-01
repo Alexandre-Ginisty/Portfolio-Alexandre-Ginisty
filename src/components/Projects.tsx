@@ -102,7 +102,7 @@ export default function Projects() {
   })
 
   return (
-    <section id="projects" className="py-20 relative">
+    <section id="projects" className="py-20 relative bg-white">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -112,9 +112,9 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="gradient-text">Projets Innovants</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Projets Innovants</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Solutions de pointe développées avec les dernières technologies et best practices
           </p>
         </motion.div>
@@ -135,9 +135,9 @@ export default function Projects() {
                 glareMaxOpacity={0.2}
                 scale={1.02}
               >
-                <div className="glass-effect rounded-2xl overflow-hidden h-full group cursor-pointer">
-                  <div className="relative h-64 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent" />
+                <div className="bg-white rounded-2xl overflow-hidden h-full group cursor-pointer border border-gray-100 shadow-md hover:shadow-lg transition-shadow">
+                  <div className="relative h-64 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent" />
                     <motion.div
                       animate={{
                         rotate: [0, 360],
@@ -184,10 +184,10 @@ export default function Projects() {
                   </div>
 
                   <div className="p-8">
-                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:gradient-text transition-all">
+                    <h3 className="text-2xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-gray-400 mb-6 line-clamp-2">
+                    <p className="text-gray-600 mb-6 line-clamp-2">
                       {project.description}
                     </p>
 
@@ -195,7 +195,7 @@ export default function Projects() {
                       {project.technologies.slice(0, 5).map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm hover:bg-primary/20 transition-colors"
+                          className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors border border-gray-200"
                         >
                           {tech}
                         </span>
