@@ -19,7 +19,7 @@ export default function AboutMe() {
             <div 
               className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-xl bg-gray-200"
               style={{
-                backgroundImage: 'url(/img/photo-pro.jpg)',
+                backgroundImage: 'url(/public/img/photo-pro.jpg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
@@ -27,7 +27,7 @@ export default function AboutMe() {
             >
               {/* Image de secours si nécessaire */}
               <img 
-                src="/img/photo-pro.jpg" 
+                src="/public/img/photo-pro.jpg" 
                 alt="Alexandre Ginisty"
                 className="w-full h-full object-cover"
                 onError={(e) => {
