@@ -16,13 +16,24 @@ export default function AboutMe() {
         >
           {/* Photo */}
           <div className="w-full lg:w-1/3 flex justify-center">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-xl">
-              <Image 
-                src="/photo pro.jpg" 
-                alt="Alexandre Ginisty" 
-                fill
-                className="object-cover"
-                priority
+            <div 
+              className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-xl bg-gray-200"
+              style={{
+                backgroundImage: 'url(/img/photo-pro.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
+            >
+              {/* Image de secours si nécessaire */}
+              <img 
+                src="/img/photo-pro.jpg" 
+                alt="Alexandre Ginisty"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
               />
             </div>
           </div>
