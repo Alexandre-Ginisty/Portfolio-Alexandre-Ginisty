@@ -83,7 +83,6 @@ export default function Hero() {
               transition={{ delay: 0.6 }}
               className="text-gray-400 mb-8 text-lg leading-relaxed"
             >
-              Transformer les idées en solutions digitales innovantes
             </motion.p>
 
             <motion.div

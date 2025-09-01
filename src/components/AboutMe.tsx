@@ -18,7 +18,7 @@ export default function AboutMe() {
           <div className="w-full lg:w-1/3 flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-xl">
               <Image 
-                src="/img/photo pro.jpg" 
+                src="/photo pro.jpg" 
                 alt="Alexandre Ginisty" 
                 fill
                 className="object-cover"
@@ -45,24 +45,7 @@ export default function AboutMe() {
                 Je suis actuellement en BUT Informatique option développement d'application à l'IUT de Vitry-sur-Seine (UPEC), avec une intégration prévue en cycle ingénieur à l'Efrei en spécialisation LSI à partir de septembre 2025.
               </p>
               
-              <div className="flex flex-wrap gap-4 mt-6">
-                <a 
-                  href="https://github.com/Alexandre-Ginisty" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="btn btn-primary"
-                >
-                  Mon GitHub
-                </a>
-                <a 
-                  href="https://www.linkedin.com/in/alexandre-ginisty-72233628b/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="btn btn-outline btn-primary"
-                >
-                  Mon LinkedIn
-                </a>
-              </div>
+          
             </div>
           </div>
         </motion.div>
